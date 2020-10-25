@@ -1,11 +1,12 @@
 {% if cookiecutter.readme_type == 'org' -%}
-{% set link = '[[llocation][ltext]]' %}{% set link_file = 'FILE:' %}#+TITLE: {{cookiecutter.project_name}}
+{% set link = '[[llocation][ltext]]' %}{% set link_file = 'file:' %}#+TITLE: {{cookiecutter.project_name}}
+
 * Table of Contents :toc:
 {% elif cookiecutter.readme_type == 'md' -%}
 {% set link = '[ltext](llocation)' %}{% set link_file = '' %}# {{cookiecutter.project_name}}
+
 # Table of Contents
 {% endif %}
-
 - {{ link | replace('llocation', '#usage') | replace('ltext', 'Usage') }}
 - {{ link | replace('llocation', '#contributing') | replace('ltext', 'Contributing') }}
 - {{ link | replace('llocation', '#code-of-conduct') | replace('ltext', 'Code of Conduct') }}
@@ -21,7 +22,7 @@
 
   - See an open pull request? You can try reviewing it!
   - Find a pesky bug or perhaps a neat place to refactor? {{ link | replace('llocation', cookiecutter.repo_link ~ '/issues/new?assignees=&labels=&template=bug_report.md&title=') | replace('ltext', 'Report it') }} or fix it with a PR!
-  - Notice some weird or missing documentation? Fix or add it with a PR! (Lazy? Just {{ link | replace('llocation', cookiecutter.repo_link ~ '/issues/new?assignees=&labels=&template=bug_report.md&title=') | replace('ltext', 'report it') }} :smile:
+  - Notice some weird or missing documentation? Fix or add it with a PR! (Lazy? Just {{ link | replace('llocation', cookiecutter.repo_link ~ '/issues/new?assignees=&labels=&template=bug_report.md&title=') | replace('ltext', 'report it') }} :smile:)
   - Want to give a recommendation for a feature? Go ahead and open an issue with {{ link | replace('llocation', cookiecutter.repo_link ~ 'issues/new?assignees=&labels=&template=feature_request.md&title=') | replace('ltext', 'this template') }}.
 
   Feel free to open a pull request, check our {{ link | replace('llocation', link_file ~ 'CONTRIBUTING.' ~ cookiecutter.contributing_type) | replace('ltext', 'contributing guide') }} for more details.
