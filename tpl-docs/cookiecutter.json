@@ -1,0 +1,13 @@
+{
+  "dir": "docs",
+  "project_name": "{{ '.' | abspath | basename }}",
+  "username": "kkhan01",
+  "readme_type": ["org", "md"],
+  "license": ["MIT License", "GNU General Public License v3.0"],
+  "license_type": ["org", "md"],
+  "contributing_type": ["org", "md"],
+  "coc_type": ["md", "org"],
+  "repo_link": "https://github.com/{{cookiecutter.username}}/{{cookiecutter.project_name}}/",
+
+  "_extensions": ["jinja2_ospath.extensions.OSPathExtension"]
+}

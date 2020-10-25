@@ -1,0 +1,36 @@
+{% if cookiecutter.readme_type == 'org' -%}
+{% set link = '[[llocation][ltext]]' %}{% set link_file = 'FILE:' %}#+TITLE: {{cookiecutter.project_name}}
+* Table of Contents :toc:
+{% elif cookiecutter.readme_type == 'md' -%}
+{% set link = '[ltext](llocation)' %}{% set link_file = '' %}# {{cookiecutter.project_name}}
+# Table of Contents
+{% endif %}
+
+- {{ link | replace('llocation', '#usage') | replace('ltext', 'Usage') }}
+- {{ link | replace('llocation', '#contributing') | replace('ltext', 'Contributing') }}
+- {{ link | replace('llocation', '#code-of-conduct') | replace('ltext', 'Code of Conduct') }}
+- {{ link | replace('llocation', '#license') | replace('ltext', 'License') }}
+
+{{ '*' if cookiecutter.readme_type == 'org' else '##'}} Usage
+
+  WIP :shipit:
+
+{{ '*' if cookiecutter.readme_type == 'org' else '##'}} Contributing
+
+  There are many ways in which you can participate in the project, for example:
+
+  - See an open pull request? You can try reviewing it!
+  - Find a pesky bug or perhaps a neat place to refactor? {{ link | replace('llocation', cookiecutter.repo_link ~ '/issues/new?assignees=&labels=&template=bug_report.md&title=') | replace('ltext', 'Report it') }} or fix it with a PR!
+  - Notice some weird or missing documentation? Fix or add it with a PR! (Lazy? Just {{ link | replace('llocation', cookiecutter.repo_link ~ '/issues/new?assignees=&labels=&template=bug_report.md&title=') | replace('ltext', 'report it') }} :smile:
+  - Want to give a recommendation for a feature? Go ahead and open an issue with {{ link | replace('llocation', cookiecutter.repo_link ~ 'issues/new?assignees=&labels=&template=feature_request.md&title=') | replace('ltext', 'this template') }}.
+
+  Feel free to open a pull request, check our {{ link | replace('llocation', link_file ~ 'CONTRIBUTING.' ~ cookiecutter.contributing_type) | replace('ltext', 'contributing guide') }} for more details.
+
+{{ '*' if cookiecutter.readme_type == 'org' else '##'}} Code of Conduct
+
+  Although code of conducts usually aren't needed, people should think before working with others and likewise people
+  should be able to work without stress. Follow our {{ link | replace('llocation', link_file ~ 'CODE_OF_CONDUCT.' ~ cookiecutter.coc_type) | replace('ltext', 'code of conduct') }} to help maintain a healthy community.
+
+{{ '*' if cookiecutter.readme_type == 'org' else '##'}} License
+
+  This project uses an {{cookiecutter.license}} license, which can be viewed {{ link | replace('llocation', link_file ~ 'LICENSE.' ~ cookiecutter.license_type) | replace('ltext', 'here') }}.
