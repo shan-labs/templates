@@ -3,6 +3,7 @@
   "project_name": "{{ '.' | abspath | basename }}",
   "full_name": "Khinshan Khan",
   "username": "kkhan01",
+  "email": "spicyriceballs@protonmail.com",
   "readme_type": ["org", "md"],
   "license": ["MIT", "Specific", "GNU General Public License v3.0"],
   "license_type": ["org", "md"],
